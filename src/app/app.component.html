@@ -13,7 +13,7 @@
           placeholder="Character #2">
       </div>
       <div class="form-group mx-sm-3 mb-2">
-        <button type="submit" class="btn btn-primary mb-2" (click)='show()'>OK</button>
+        <button type="submit" class="btn btn-primary mb-2" (click)='start()'>OK</button>
       </div>
     </form>
   </div>
@@ -24,13 +24,13 @@
           <table>
             <tr>
               <td>
-                <img [src]='characters[0].image' class="rounded float-left" width='100px'>
+                <img [src]='characters[0].image' id='icon' class="rounded float-left">
               </td>
               <td>
                 <h5>{{ characters[0].name }} X {{ characters[1].name }} </h5>
               </td>
               <td>
-                <img [src]='characters[1].image' class="rounded float-right" width='100px'>
+                <img [src]='characters[1].image' id='icon' class="rounded float-right">
               </td>
             </tr>
           </table>
@@ -40,35 +40,35 @@
       <div class="card-body">
         <table id='gameTable'>
           <tr id='gameLine'>
-            <td>
+            <td id='a1'>
 
             </td>
-            <td>
+            <td id='a2'>
 
             </td>
-            <td>
-
-            </td>
-          </tr>
-          <tr id='gameLine'>
-            <td>
-
-            </td>
-            <td>
-
-            </td>
-            <td>
+            <td id='a3'>
 
             </td>
           </tr>
           <tr id='gameLine'>
-            <td>
+            <td id='b1'>
 
             </td>
-            <td>
+            <td id='b2'>
 
             </td>
-            <td>
+            <td id='b3'>
+
+            </td>
+          </tr>
+          <tr id='gameLine'>
+            <td id='c1'>
+
+            </td>
+            <td id='c2'>
+
+            </td>
+            <td id='c3'>
 
             </td>
           </tr>

@@ -1,6 +1,6 @@
 
 #icon{
-    width: 200px;
+    width: 120px;
 }
 
 #chooseCharacter{
@@ -22,11 +22,11 @@
 }
 
 .card{
-    max-width: 23rem !important;
+    max-width: 26rem !important;
 }
 
 td{
-    padding: 3px;
+    padding: 4px;
 }
 
 #gameTable{
@@ -41,6 +41,6 @@ td{
 #gameTable td{
     padding: 5px;
     border: 1px solid black;
-    width: 200px;
-    height: 110px;
+    width: 130px;
+    height: 130px;
 }

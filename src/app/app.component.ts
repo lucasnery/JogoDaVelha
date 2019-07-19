@@ -19,10 +19,10 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.show();
+    this.start();
   }
 
-  show() {
+  start() {
     this.getAllCharacters(this.character1);
     this.getAllCharacters(this.character2);
     console.log(this.characters);
@@ -44,7 +44,6 @@ export class AppComponent implements OnInit {
     this.dataService.getCharacter(name).subscribe(
       res => {
 
-        this.loading = false;
         console.log(res);
         console.log('Tamanho = ' + res.data.results.length);
 
