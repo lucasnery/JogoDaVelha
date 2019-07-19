@@ -1,1 +1,79 @@
-<app-my-dialog></app-my-dialog>
+<div class="container">
+  <div *ngIf='chooseCharacter' id='chooseCharacter'>
+    <form class="form-inline">
+      <div class="form-group mx-sm-3 mb-2">
+        <h4>Choose The Players</h4>
+      </div>
+      <div class="form-group mx-sm-3 mb-2">
+        <input name="character1" id="character1" [(ngModel)]="character1" type="text" class="form-control"
+          placeholder="Character #1">
+      </div>
+      <div class="form-group mx-sm-3 mb-2">
+        <input name="character2" id="character2" [(ngModel)]="character2" type="text" class="form-control"
+          placeholder="Character #2">
+      </div>
+      <div class="form-group mx-sm-3 mb-2">
+        <button type="submit" class="btn btn-primary mb-2" (click)='show()'>OK</button>
+      </div>
+    </form>
+  </div>
+  <div *ngIf='game' id='game'>
+    <div id='card' class="card text-white bg-secondary mb-3" style="max-width: 18rem;">
+      <div class="card-header">
+        <div *ngIf='characters.length > 0'>
+          <table>
+            <tr>
+              <td>
+                <img [src]='characters[0].image' class="rounded float-left" width='100px'>
+              </td>
+              <td>
+                <h5>{{ characters[0].name }} X {{ characters[1].name }} </h5>
+              </td>
+              <td>
+                <img [src]='characters[1].image' class="rounded float-right" width='100px'>
+              </td>
+            </tr>
+          </table>
+
+        </div>
+      </div>
+      <div class="card-body">
+        <table id='gameTable'>
+          <tr id='gameLine'>
+            <td>
+
+            </td>
+            <td>
+
+            </td>
+            <td>
+
+            </td>
+          </tr>
+          <tr id='gameLine'>
+            <td>
+
+            </td>
+            <td>
+
+            </td>
+            <td>
+
+            </td>
+          </tr>
+          <tr id='gameLine'>
+            <td>
+
+            </td>
+            <td>
+
+            </td>
+            <td>
+
+            </td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

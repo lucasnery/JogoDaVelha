@@ -25,7 +25,7 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
     NgbModule
   ],
   entryComponents: [
-    AppComponent
+    MyDialogComponent
   ],
   providers: [
     DataService,
