@@ -1,79 +1,75 @@
-<div class="container">
-  <div *ngIf='chooseCharacter' id='chooseCharacter'>
-    <form class="form-inline">
-      <div class="form-group mx-sm-3 mb-2">
-        <h4>Choose The Players</h4>
-      </div>
-      <div class="form-group mx-sm-3 mb-2">
-        <input name="character1" id="character1" [(ngModel)]="character1" type="text" class="form-control"
-          placeholder="Character #1">
-      </div>
-      <div class="form-group mx-sm-3 mb-2">
-        <input name="character2" id="character2" [(ngModel)]="character2" type="text" class="form-control"
-          placeholder="Character #2">
-      </div>
-      <div class="form-group mx-sm-3 mb-2">
-        <button type="submit" class="btn btn-primary mb-2" (click)='start()'>OK</button>
-      </div>
-    </form>
+<div class="container-fluid p-5 animated slideInDown" id="top">
+  <div class="row justify-content-center">
+    <div class="col-12 text-center">
+      <h1 class="text-white animated zoomIn" style="text-shadow: 1px 1px 10px #000;">TIC TAC TOE</h1>
+    </div>
+    <div class="col-xs-12 col-md-2 text-center">
+
+      <button *ngIf="!playerOne" class="btn btn-primary btn-lg animated slideInLeft" (click)="pickPlayer(1)">Pick Player
+        #1
+      </button>
+
+      <ng-container *ngIf="playerOne">
+        <img class="img-thumbnail m-5 animated infinite" [class.pulse]="currentPlayer === 1"
+             [class.waiting]="currentPlayer === 2"
+             style="width: 50%;border-radius: 50%"
+             [src]="fullImagePlayerOne">
+        <h5>{{playerOne.name}} {{playerOnePoint}}</h5>
+      </ng-container>
+
+    </div>
+    <div class="col-xs-12 col-md-2 text-center">
+      <button *ngIf="!playerTwo" class="btn btn-primary btn-lg animated slideInRight" (click)="pickPlayer(2)">Pick
+        Player
+        #2
+      </button>
+
+      <ng-container *ngIf="playerTwo">
+        <img class="img-thumbnail m-5 animated infinite" [class.pulse]="currentPlayer === 2"
+             [class.waiting]="currentPlayer === 1"
+             style="width: 50%;border-radius: 50%"
+             [src]="fullImagePlayerTwo">
+        <h5>{{playerTwoPoint}} {{playerTwo.name}} </h5>
+      </ng-container>
+
+    </div>
   </div>
-  <div *ngIf='game' id='game'>
-    <div id='card' class="card text-white bg-secondary mb-3" style="max-width: 18rem;">
-      <div class="card-header">
-        <div *ngIf='characters.length > 0'>
-          <table>
-            <tr>
-              <td>
-                <img [src]='characters[0].image' id='icon' class="rounded float-left">
-              </td>
-              <td>
-                <h5>{{ characters[0].name }} X {{ characters[1].name }} </h5>
-              </td>
-              <td>
-                <img [src]='characters[1].image' id='icon' class="rounded float-right">
-              </td>
-            </tr>
-          </table>
+  <div class="text-center" *ngIf="(playerOne && playerTwo) && screen === screenType.HOME">
+    <button class="btn btn-primary btn-lg  animated pulse infinite" (click)="startGame()">Start</button>
+  </div>
 
+</div>
+
+<div class="container">
+  <ng-container *ngIf="screen == screenType.GAME">
+    <div class="row justify-content-center">
+      <div class="col-xs-12 col-md-4">
+
+        <div class="p-5" *ngIf="!winner">
+          <h2 *ngIf="turns == 0"
+              class="animated tada text-center">{{currentPlayer === 1 ? playerOne.name : playerTwo.name}} starts.</h2>
+
+          <h2 *ngIf="turns > 0 && !winner" class="text-center">{{currentPlayer === 1 ? playerOne.name : playerTwo.name}}
+            's turn.</h2>
         </div>
-      </div>
-      <div class="card-body">
-        <table id='gameTable'>
-          <tr id='gameLine'>
-            <td id='a1'>
 
-            </td>
-            <td id='a2'>
-
-            </td>
-            <td id='a3'>
-
-            </td>
-          </tr>
-          <tr id='gameLine'>
-            <td id='b1'>
-
-            </td>
-            <td id='b2'>
-
-            </td>
-            <td id='b3'>
-
-            </td>
-          </tr>
-          <tr id='gameLine'>
-            <td id='c1'>
-
-            </td>
-            <td id='c2'>
-
-            </td>
-            <td id='c3'>
-
+        <table id="gameTable">
+          <tr *ngFor="let line of grid; let lineIndex = index">
+            <td class="text-center animated infinite"
+                [class.flash]="winner && highlight.indexOf([lineIndex, gridIndex].join('')) > -1"
+                *ngFor="let column of line; let gridIndex = index"
+                (click)="choose(lineIndex, gridIndex)">
+              <h2 class="text-center">{{column}}</h2>
             </td>
           </tr>
         </table>
+
+        <h4 *ngIf="winner" class="text-center p-5">
+          <button class="btn btn-primary btn-md" (click)="startGame()">Play again!</button>
+          <button class="btn btn-secondary btn-md" (click)="restart() ">Restart</button>
+        </h4>
+
       </div>
     </div>
-  </div>
+  </ng-container>
 </div>

@@ -2,6 +2,7 @@ import {Injectable} from '@angular/core';
 import {Md5} from 'ts-md5/dist/md5';
 import {HttpClient} from '@angular/common/http';
 import {map} from 'rxjs/operators';
+import {MarvelHero} from './entity/marvelHeroe';
 
 @Injectable({
   providedIn: 'root'
@@ -20,6 +21,6 @@ export class DataService {
   }
 
   getCharacter(name: string) {
-    return this.http.get<any>(`${this.url}${name}`).pipe(map((data: any) => data));
+    return this.http.get<Array<MarvelHero>>(`${this.url}${name}`).pipe(map((res: any) => res.data.results));
   }
 }

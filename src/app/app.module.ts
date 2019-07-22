@@ -1,19 +1,19 @@
-import { DataService } from './data.service';
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import {DataService} from './data.service';
+import {BrowserModule} from '@angular/platform-browser';
+import {NgModule} from '@angular/core';
 
-import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
-import { HttpClientModule } from '@angular/common/http';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { MyDialogComponent } from './my-dialog/my-dialog.component';
+import {AppRoutingModule} from './app-routing.module';
+import {AppComponent} from './app.component';
+import {HttpClientModule} from '@angular/common/http';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import {HeroSelectComponent} from './modal/hero-select/hero-select.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    MyDialogComponent,
+    HeroSelectComponent,
   ],
   imports: [
     BrowserModule,
@@ -25,11 +25,12 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
     NgbModule
   ],
   entryComponents: [
-    MyDialogComponent
+    HeroSelectComponent
   ],
   providers: [
     DataService,
   ],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}

@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { MyDialogComponent } from './my-dialog.component';
+import { HeroSelectComponent } from './hero-select.component';
 
-describe('MyDialogComponent', () => {
-  let component: MyDialogComponent;
-  let fixture: ComponentFixture<MyDialogComponent>;
+describe('HeroSelectComponent', () => {
+  let component: HeroSelectComponent;
+  let fixture: ComponentFixture<HeroSelectComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ MyDialogComponent ]
+      declarations: [ HeroSelectComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(MyDialogComponent);
+    fixture = TestBed.createComponent(HeroSelectComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
